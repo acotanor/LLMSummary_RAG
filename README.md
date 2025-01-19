@@ -12,10 +12,15 @@ Any suggestion and/or improvements are welcomed!
 * [Installation and setup:](#installation-and-setup)
     * [Set up the python environment](#1-setup-the-python-environment)
     * [Set up your local LLM](#2-setup-your-local-llm)
-* [Summarizing pdf files.](#summarizing-pdf-files)
+* [Summarizing pdf files:](#summarizing-pdf-files)
+    * [Basic run](#basic-run)
+    * [Advanced options](#advanced-options)
 * [Building a RAG:](#building-a-rag)
     * [Preparing the data](#preparing-the-data)
     * [Asking questions about the provided data](#asking-questions-about-the-provided-data)
+* [Customization](#customization)
+    * [Changing LLM](#changing-llm)
+    * [HuggingFace Embeddings](#huggingface-embeddings)
 * [Sources:](#sources)
     * [RAG](#rag)
     * [Summarizer](#summarizer)
@@ -224,7 +229,7 @@ class model:
         ...
 ```
 
-### HuggingFace Embeddings:
+## HuggingFace Embeddings:
 HuggingFace models can be implemented to customize the embeddings, I experienced drops in performance while getting no apparent improvements in tex generation, but perhaps a more powerfull machine could benefit from a HuggingFace model bigger than llama3.
 
 You'll need to do the following changes to models.py:
