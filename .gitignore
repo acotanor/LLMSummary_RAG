@@ -1,4 +1,5 @@
 *.pdf
+!s41598-024-79048-0.pdf
 data/*.md
 streamlit.py
 __pycache__
