@@ -1,5 +1,5 @@
 *.pdf
-*.md
+data/*.md
 streamlit.py
 __pycache__
 chroma
