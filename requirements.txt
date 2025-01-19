@@ -1,0 +1,9 @@
+pypdf
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langchain-chroma
+scikit-learn
+transformers
+torch
