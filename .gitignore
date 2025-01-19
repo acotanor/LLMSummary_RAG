@@ -1,6 +1,9 @@
+# Ignore all pdf files but the example paper:
 *.pdf
 !s41598-024-79048-0.pdf
-data/*.md
-streamlit.py
+# Ignore all md files in data/md but the example md file:
+data/md/*.md
+!alice_in_wonderland.md
+# Ignore automatically generated folders
 __pycache__
 chroma
