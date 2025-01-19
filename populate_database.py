@@ -12,15 +12,13 @@ from langchain_chroma import Chroma
 pd = argparse.ArgumentParser()
 pd.add_argument("--reset", action="store_true", help="Reset the database.") # Reset the database, which is required to erase data or use a different model.
 
-pd.add_argument("--llm_model", type=str, help="Select the model of the llm. (Default: llama3:latest)", default="llama3:latest")
-
 # One of them is mandatory but can't execute both at the same time.
 doctype = pd.add_mutually_exclusive_group()
 doctype.add_argument("--pdf", action="store_true", help="Set the doctype to pdf.")
 doctype.add_argument("--md", action="store_true", help="Set the doctype to md.")
 args_pd = pd.parse_args()
 
-pd_model = model(llm=args_pd.llm_model)
+pd_model = model()
 
 CHROMA_PATH = "chroma"
 DATA_PATH = ""

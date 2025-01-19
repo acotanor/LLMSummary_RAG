@@ -11,8 +11,6 @@ llms = argparse.ArgumentParser()
 llms.add_argument("--pdf", type=str, help="Select the pdf file to summarize.", required=True)
 llms.add_argument("--chunk_size", type=int, help="Select the size of the chunks when splitting the pdf file. (Default: 1024)", default=1024)
 
-llms.add_argument("--llm_model", type=str, help="Select the model of the llm. (Default: llama3:latest)", default="llama3:latest")
-
 promtp = llms.add_mutually_exclusive_group(required=True)
 promtp.add_argument("--summary", action="store_true", help="The prompt will tell the model to summaryze the file.")
 promtp.add_argument("--key_points", action="store_true", help="The prompt will tell the model to divide the file on its key points.")
@@ -29,14 +27,6 @@ CONCISE SUMMARY:
 map_prompt_template = PromptTemplate(template=map_prompt, input_variables=["text"])
 
 # Custom Prompts.
-bullet_prompt = """
-Write a concise summary of the following text delimited by triple backquotes.
-Return your response in bullet points which covers the key points of the text.
-```{text}```
-BULLET POINT SUMMARY:
-"""
-bullet_prompt_template = PromptTemplate(template=bullet_prompt, input_variables=["text"])
-
 summarization_prompt = PromptTemplate(
     input_variables=["text"],
     template=(
@@ -68,5 +58,5 @@ def summarize_document(f, llm, embeddings): # Summarizes the text chunks.
         return str(e)
 
 
-llms_model = model(llm=args_llms.llm_model)
+llms_model = model()
 print(summarize_document(args_llms.pdf,llms_model.llm,llms_model.embeddings))

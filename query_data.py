@@ -16,17 +16,17 @@ Answer to the question based only on the above context, preserve technical detai
 """
 query = argparse.ArgumentParser()
 query.add_argument("query_text", type=str, help="The query text.")
-query.add_argument("--llm_model", type=str, help="Select the model of the llm. (Default: llama3:latest)", default="llama3:latest")
+query.add_argument("--k", type=int, help="Selects the k-best sources for the query.", default=5)
 args_query = query.parse_args()
 
-model_query = model(llm=args_query.llm_model)
+model_query = model()
 
 def main():
     query_rag(args_query.query_text)
 
 def query_rag(query_text: str):
     # Search the DB.
-    results = Chroma(persist_directory=CHROMA_PATH, embedding_function=model_query.embeddings).similarity_search_with_score(query_text, k=5)
+    results = Chroma(persist_directory=CHROMA_PATH, embedding_function=model_query.embeddings).similarity_search_with_score(query_text, args_query.k)
 
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
