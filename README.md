@@ -18,7 +18,7 @@ Any suggestion and/or improvements are welcomed!
 * [Building a RAG:](#building-a-rag)
     * [Preparing the data](#preparing-the-data)
     * [Asking questions about the provided data](#asking-questions-about-the-provided-data)
-* [Customization](#customization)
+* [Customization:](#customization)
     * [Changing LLM](#changing-llm)
     * [HuggingFace Embeddings](#huggingface-embeddings)
 * [Sources:](#sources)
